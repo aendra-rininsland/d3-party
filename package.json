@@ -10,7 +10,7 @@
     "d3",
     "party"
   ],
-  "author": "Ændrew Rininsland <aendrew@aendrew.com>, sadly",
+  "author": "Ændrew Rininsland <aendrew@aendrew.com>",
   "license": "ISC",
   "devDependencies": {
     "xo": "^0.23.0"
