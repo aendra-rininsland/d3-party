@@ -39,11 +39,13 @@ export const findRootSvg = node => {
  * N.b., this is meant to be supplied to a D3 accessor or Array.prototype callback.
  * @param  {string} color                            Color string
  * @param  {number} idx                              Index of current color
- * @param  {string[]} [colorList=partyParrotColors]  Array of values, defaulting to Parrot
  * @return {string}                                  Semicolon-separated cyclical value string
  */
-export const generateRamp = (color, idx, colorList = partyParrotColors) =>
-	[...colorList.slice(idx), ...colorList.slice(0, idx + 1)].join('; ');
+export const generateRamp = (color, idx) =>
+	[
+		...partyParrotColors.slice(idx),
+		...partyParrotColors.slice(0, idx + 1)
+	].join('; ');
 
 /**
  * Creates a `defs` object containing an animated gradient.
