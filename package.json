@@ -1,0 +1,15 @@
+{
+  "name": "d3-party",
+  "version": "1.0.0",
+  "description": "lol.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "d3",
+    "party"
+  ],
+  "author": "Ændrew Rininsland <aendrew@aendrew.com>, sadly",
+  "license": "ISC"
+}
