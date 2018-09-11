@@ -17,24 +17,29 @@ export const partyParrotColors = [
   "#FD8E8D"
 ];
 
+/**
+ * d3 party constructor
+ * @param  {d3Selection} svgSelection Selection containing a SVG parent node
+ */
 export default function(
+  svgSelection,
   config = {
     speed: 500,
     direction: "normal"
   }
 ) {
+  if (!svgSelection) throw new Error("Please supply a selection");
+
+  const root = findRootSvg(svgSelection.node());
+  const stops = root.select("defs > #party").size()
+    ? root.select("defs > #party")
+    : root.call(createGradient);
+
   let { speed, direction } = config;
   let start = false;
-  let stops;
 
-  const party = selection => {
-    const root = findRootSvg(node.parentElement);
-    stops = root.select("defs > #party").size()
-      ? root.select("defs > #party")
-      : root.call(createGradient);
-
-    selection.attr("fill", `url(#party)`);
-
+  const party = (selection, opts = { mode: "fill" }) => {
+    selection.attr(opts.mode, `url(#party)`);
     window.requestAnimationFrame(party.animate);
   };
 
