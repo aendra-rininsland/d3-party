@@ -28,7 +28,7 @@ export const partyParrotColors = [
  * @return {HTMLElement}     Root SVG element.
  */
 export const findRootSvg = node => {
-	const el = node.toString() === '[object SVGSVGElement]' ? node : node.node();
+	const el = node.toString().includes('SVGElement') ? node : node.node();
 	return el.tagName.toLowerCase() === 'svg'
 		? el
 		: findRootSvg(node.parentElement);
