@@ -1,10 +1,13 @@
 {
   "name": "d3-party",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "lol.",
-  "main": "index.js",
+  "main": "dist/d3-party.js",
+  "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "rollup -c",
+    "prepare": "npm test && npm run build"
   },
   "keywords": [
     "d3",
@@ -13,15 +16,30 @@
   "author": "Ændrew Rininsland <aendrew@aendrew.com>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "d3-selection": "^1.3.2",
+    "jest": "^23.6.0",
+    "rollup": "^0.65.2",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "xo": "^0.23.0"
   },
   "xo": {
     "prettier": true,
     "envs": [
-      "browser"
+      "browser",
+      "jest"
     ]
   },
-  "dependencies": {
-    "d3": "^5.7.0"
+  "peerDependencies": {
+    "d3-selection": "^1.3.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
   }
 }
